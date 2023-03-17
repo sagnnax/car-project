@@ -41,6 +41,13 @@ if st.sidebar.button('Buscar', key='button2'):
     st.header('Modelos encontrados:')
     st.write(results)
 
+query = st.sidebar.text_input("Buscar Kilometraje: ")
+query = query.upper()
+if st.sidebar.button('Buscar', key='buttonKM'):
+    results = data[data["mileage"].str.contains(query)]
+    st.header('Kilometrajes encontrados:')
+    st.write(results)
+
 # Multiselect
 st.sidebar.markdown("##")
 gear = st.sidebar.multiselect("Selecciona el tipo de transmisión",
